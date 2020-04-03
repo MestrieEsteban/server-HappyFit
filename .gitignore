@@ -112,6 +112,5 @@ temp/
 
 .dist
 
-yarn.lock
 .idea/*
 package-lock.json
