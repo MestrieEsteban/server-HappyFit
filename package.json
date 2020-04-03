@@ -8,7 +8,7 @@
     "test": "yarn test:type",
     "test:type": "yarn tsc",
     "lint": "yarn eslint src/**/*.ts",
-    "build": "yarn babel src/ --out-dir .dist --extensions '.ts' --quiet",
+    "build": "yarn babel src/ --out-dir .dist --extensions '.ts'",
     "start": "yarn build && node .dist/main"
   },
   "devDependencies": {
