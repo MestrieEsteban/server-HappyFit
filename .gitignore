@@ -47,6 +47,7 @@ node_modules/
 jspm_packages/
 .idea/*
 .DS_Store
+package-lock.json
 
 # TypeScript v1 declaration files
 typings/
