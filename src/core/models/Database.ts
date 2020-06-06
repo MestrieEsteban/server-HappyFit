@@ -36,7 +36,7 @@ export default class Database {
       password,
       database,
       entities: [User, Post],
-      dropSchema: false,
+      dropSchema: true,
       synchronize: true,
       logging: false,
     })
