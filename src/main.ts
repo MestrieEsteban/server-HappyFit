@@ -21,5 +21,6 @@ const main = async (): Promise<void> => {
     process.exit(-1)
   }
 }
-//coucou3
+
+// Let's Rock ! 😘😅
 main()
