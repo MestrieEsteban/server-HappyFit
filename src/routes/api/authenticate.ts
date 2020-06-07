@@ -20,7 +20,7 @@ api.post('/signup', async (req: Request, res: Response) => {
       throw new Error(`Field${isPlural ? 's' : ''} [ ${missings.join(', ')} ] ${isPlural ? 'are' : 'is'} missing`)
     }
 
-    const { firstname, lastname, email, password, passwordConfirmation, gender ,height, weight } = req.body
+    const { firstname, lastname, email, password, passwordConfirmation, gender, height, weight } = req.body
 
     if (password !== passwordConfirmation) {
       throw new Error("Password doesn't match")
