@@ -1,12 +1,4 @@
-import {
-  Entity,
-  PrimaryGeneratedColumn,
-  Column,
-  BaseEntity,
-  ManyToOne,
-  JoinColumn,
-  OneToMany,
-} from 'typeorm'
+import { Entity, PrimaryGeneratedColumn, Column, BaseEntity, ManyToOne, JoinColumn, OneToMany } from 'typeorm'
 import Programme from './Programme'
 import Exercise_name from './exercise_name'
 import Muscle from './muscle'
