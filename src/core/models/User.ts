@@ -19,7 +19,6 @@ import Meal from './Meal'
 import Goal from './Goal'
 import Level from './Level'
 
-
 @Entity()
 export default class User extends BaseEntity {
   private static SALT_ROUND = 8
@@ -48,7 +47,7 @@ export default class User extends BaseEntity {
   @Column({ nullable: false })
   height!: number
 
-  @Column({type: "float", nullable: false })
+  @Column({ type: 'float', nullable: false })
   weight!: number
 
   @CreateDateColumn()
@@ -60,18 +59,18 @@ export default class User extends BaseEntity {
   @OneToMany(() => Post, (post: Post) => post.user)
   posts!: Post[]
 
-  @OneToMany( type => Programme, programme => programme.user_id)
+  @OneToMany((type) => Programme, (programme) => programme.user_id)
   programmes!: Programme[] | undefined
 
-  @ManyToOne( type => Meal, meal => meal.user)
+  @ManyToOne((type) => Meal, (meal) => meal.user)
   @JoinColumn({ name: 'id_meal' })
   meal_id!: Meal | undefined
 
-  @ManyToOne( type => Goal, goal => goal.user)
+  @ManyToOne((type) => Goal, (goal) => goal.user)
   @JoinColumn({ name: 'id_goal' })
   goal_id!: Goal | undefined
 
-  @ManyToOne( type => Level, level => level.user)
+  @ManyToOne((type) => Level, (level) => level.user)
   @JoinColumn({ name: 'id_level' })
   level_id!: Level | undefined
 
