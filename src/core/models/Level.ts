@@ -3,11 +3,6 @@ import {
   PrimaryGeneratedColumn,
   Column,
   BaseEntity,
-  CreateDateColumn,
-  UpdateDateColumn,
-  ManyToOne,
-  JoinColumn,
-  OneToOne,
   OneToMany,
 } from 'typeorm'
 import User from './User'
