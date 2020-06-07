@@ -2,20 +2,20 @@ import { Entity, PrimaryGeneratedColumn, Column, BaseEntity, OneToMany } from 't
 import Exercise from './Exercise'
 
 @Entity()
-export default class Exercise_name extends BaseEntity {
+export default class ExerciseName extends BaseEntity {
   @PrimaryGeneratedColumn()
   id!: number
 
   @Column({ nullable: false, unique: true })
   name!: string
 
-  @OneToMany((type) => Exercise, (exercise) => exercise.exercise_name_id)
+  @OneToMany((type) => Exercise, (exercise) => exercise.ExerciseName_id)
   exercise!: Exercise[] | undefined
 
   /**
    * Methods
    */
-  public toJSON(): Exercise_name {
+  public toJSON(): ExerciseName {
     const json = Object.assign({}, this)
 
     delete json.exercise

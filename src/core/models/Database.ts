@@ -6,7 +6,7 @@ import Post from './Post'
 import Programme from './Programme'
 import Exercise from './Exercise'
 import Daily from './Daily'
-import Exercise_name from './exercise_name'
+import ExerciseName from './ExerciseName'
 import Muscle from './muscle'
 import Meal from './Meal'
 import Goal from './Goal'
@@ -43,7 +43,7 @@ export default class Database {
       username,
       password,
       database,
-      entities: [User, Post, Programme, Exercise, Daily, Exercise_name, Muscle, Meal, Goal, Level],
+      entities: [User, Post, Programme, Exercise, Daily, ExerciseName, Muscle, Meal, Goal, Level],
       dropSchema: true,
       synchronize: true,
       logging: false,

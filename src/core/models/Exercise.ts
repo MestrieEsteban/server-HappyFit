@@ -1,6 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column, BaseEntity, ManyToOne, JoinColumn, OneToMany } from 'typeorm'
 import Programme from './Programme'
-import Exercise_name from './exercise_name'
+import ExerciseName from './ExerciseName'
 import Muscle from './muscle'
 
 @Entity()
@@ -20,13 +20,13 @@ export default class Exercise extends BaseEntity {
   @OneToMany((type) => Programme, (programme) => programme.exercise)
   exercise_id!: Programme[] | undefined
 
-  @ManyToOne((type) => Exercise_name, (exercise_name) => exercise_name.exercise)
-  @JoinColumn({ name: 'id_exercise_name' })
-  exercise_name_id!: Exercise_name | undefined
+  @ManyToOne((type) => ExerciseName, (ExerciseName) => ExerciseName.exercise)
+  @JoinColumn({ name: 'id_ExerciseName' })
+  ExerciseName_id!: ExerciseName | undefined
 
   @ManyToOne((type) => Muscle, (muscle) => muscle.exercise)
   @JoinColumn({ name: 'id_muscle' })
-  muscle_id!: Exercise_name | undefined
+  muscle_id!: ExerciseName | undefined
 
   /**
    * Methods
