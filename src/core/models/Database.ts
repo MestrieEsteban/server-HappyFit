@@ -3,6 +3,14 @@ import { createConnection, Connection } from 'typeorm'
 
 import User from './User'
 import Post from './Post'
+import Programme from './Programme'
+import Exercise from './Exercise'
+import Daily from './Daily'
+import Exercise_name from './exercise_name'
+import Muscle from './muscle'
+import Meal from './Meal'
+import Goal from './Goal'
+import Level from './Level'
 
 export default class Database {
   private static _instance: Database | null = null
@@ -35,7 +43,7 @@ export default class Database {
       username,
       password,
       database,
-      entities: [User, Post],
+      entities: [User, Post, Programme, Exercise, Daily, Exercise_name, Muscle, Meal, Goal, Level],
       dropSchema: true,
       synchronize: true,
       logging: false,

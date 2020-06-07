@@ -8,10 +8,17 @@ import {
   OneToMany,
   BeforeInsert,
   BeforeUpdate,
+  ManyToOne,
+  JoinColumn,
 } from 'typeorm'
 import bcrypt from 'bcryptjs'
 
 import Post from './Post'
+import Programme from './Programme'
+import Meal from './Meal'
+import Goal from './Goal'
+import Level from './Level'
+
 
 @Entity()
 export default class User extends BaseEntity {
@@ -35,6 +42,15 @@ export default class User extends BaseEntity {
   @Column({ nullable: true, default: -1 })
   age!: number
 
+  @Column({ nullable: false })
+  gender!: boolean
+
+  @Column({ nullable: false })
+  height!: number
+
+  @Column({type: "float", nullable: false })
+  weight!: number
+
   @CreateDateColumn()
   createdAt!: string
 
@@ -43,6 +59,21 @@ export default class User extends BaseEntity {
 
   @OneToMany(() => Post, (post: Post) => post.user)
   posts!: Post[]
+
+  @OneToMany( type => Programme, programme => programme.user_id)
+  programmes!: Programme[] | undefined
+
+  @ManyToOne( type => Meal, meal => meal.user)
+  @JoinColumn({ name: 'id_meal' })
+  meal_id!: Meal | undefined
+
+  @ManyToOne( type => Goal, goal => goal.user)
+  @JoinColumn({ name: 'id_goal' })
+  goal_id!: Goal | undefined
+
+  @ManyToOne( type => Level, level => level.user)
+  @JoinColumn({ name: 'id_level' })
+  level_id!: Level | undefined
 
   /**
    * Hooks
