@@ -41,13 +41,13 @@ export default class User extends BaseEntity {
   @Column({ nullable: true, default: -1 })
   age!: number
 
-  @Column({ nullable: false })
+  @Column({ nullable: true })
   gender!: boolean
 
-  @Column({ nullable: false })
+  @Column({ nullable: true })
   height!: number
 
-  @Column({ type: 'float', nullable: false })
+  @Column({ type: 'float', nullable: true })
   weight!: number
 
   @CreateDateColumn()
