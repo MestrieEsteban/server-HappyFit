@@ -13,7 +13,6 @@ import Goal from './Goal'
 import Level from './Level'
 import { addUserTest } from '@/core/fixtures/users'
 
-
 export default class Database {
   private static _instance: Database | null = null
   private _connection: Connection | null = null
@@ -51,9 +50,9 @@ export default class Database {
       logging: false,
     })
 
-    setTimeout(async function (){
+    setTimeout(async function () {
       addUserTest()
-    },4000);
+    }, 4000)
 
     return this._connection
   }
