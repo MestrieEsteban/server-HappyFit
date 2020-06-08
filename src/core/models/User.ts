@@ -38,11 +38,8 @@ export default class User extends BaseEntity {
   @Column({ nullable: false })
   password!: string
 
-  @Column({ nullable: true, default: -1 })
-  age!: number
-
   @Column({ nullable: true })
-  gender!: boolean
+  gender!: string
 
   @Column({ nullable: true })
   height!: number

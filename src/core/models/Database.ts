@@ -11,6 +11,8 @@ import Muscle from './muscle'
 import Meal from './Meal'
 import Goal from './Goal'
 import Level from './Level'
+import { addUserTest } from '@/core/fixtures/users'
+
 
 export default class Database {
   private static _instance: Database | null = null
@@ -48,6 +50,10 @@ export default class Database {
       synchronize: true,
       logging: false,
     })
+
+    setTimeout(async function (){
+      addUserTest()
+    },4000);
 
     return this._connection
   }
