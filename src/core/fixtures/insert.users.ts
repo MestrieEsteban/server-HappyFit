@@ -22,7 +22,7 @@ const users = [
   },
 ]
 
-export async function addUserTest(): Promise<never | void> {
+export async function addUser(): Promise<never | void> {
   for (const u of users) {
     const user = new User()
 

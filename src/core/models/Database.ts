@@ -11,7 +11,10 @@ import Muscle from './muscle'
 import Meal from './Meal'
 import Goal from './Goal'
 import Level from './Level'
-import { addUserTest } from '@/core/fixtures/users'
+import { addUser } from '@/core/fixtures/insert.users'
+import { addLevel } from '@/core/fixtures/insert.level'
+import { addMeal } from '@/core/fixtures/insert.meal'
+import { addGoal } from '@/core/fixtures/insert.goal'
 
 export default class Database {
   private static _instance: Database | null = null
@@ -51,7 +54,19 @@ export default class Database {
     })
 
     setTimeout(async function () {
-      addUserTest()
+      addUser()
+    }, 4000)
+
+    setTimeout(async function () {
+      addLevel()
+    }, 4000)
+
+    setTimeout(async function () {
+      addMeal()
+    }, 4000)
+
+    setTimeout(async function () {
+      addGoal()
     }, 4000)
 
     return this._connection
