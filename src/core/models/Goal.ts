@@ -9,7 +9,7 @@ export default class Goal extends BaseEntity {
   @Column({ nullable: false, unique: true })
   name!: string
 
-  @OneToMany((type) => User, (user) => user.goal_id)
+  @OneToMany((type) => User, (user) => user.goalId)
   user!: User[] | undefined
 
   /**

@@ -9,7 +9,7 @@ export default class Meal extends BaseEntity {
   @Column({ nullable: false, unique: true })
   number!: string
 
-  @OneToMany((type) => User, (user) => user.meal_id)
+  @OneToMany((type) => User, (user) => user.levelId)
   user!: User[] | undefined
 
   /**

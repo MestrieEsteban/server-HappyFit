@@ -9,7 +9,7 @@ export default class Level extends BaseEntity {
   @Column({ nullable: false, unique: true })
   name!: string
 
-  @OneToMany((type) => User, (user) => user.level_id)
+  @OneToMany((type) => User, (user) => user.levelId)
   user!: User[] | undefined
 
   /**
