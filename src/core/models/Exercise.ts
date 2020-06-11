@@ -1,7 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column, BaseEntity, ManyToOne, JoinColumn, OneToMany } from 'typeorm'
 import Programme from './Programme'
 import ExerciseName from './ExerciseName'
-import Muscle from './muscle'
+import Muscle from './Muscle'
 
 @Entity()
 export default class Exercise extends BaseEntity {
