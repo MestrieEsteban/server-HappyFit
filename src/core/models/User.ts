@@ -61,15 +61,15 @@ export default class User extends BaseEntity {
 
   @ManyToOne((type) => Meal, (meal) => meal.user)
   @JoinColumn({ name: 'id_meal' })
-  meal_id!: Meal | undefined
+  mealId!: Meal | undefined
 
   @ManyToOne((type) => Goal, (goal) => goal.user)
   @JoinColumn({ name: 'id_goal' })
-  goal_id!: Goal | undefined
+  goalId!: Goal | undefined
 
   @ManyToOne((type) => Level, (level) => level.user)
   @JoinColumn({ name: 'id_level' })
-  level_id!: Level | undefined
+  levelId!: Level | undefined
 
   /**
    * Hooks
