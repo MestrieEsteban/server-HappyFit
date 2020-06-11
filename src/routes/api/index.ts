@@ -7,7 +7,7 @@ const api = Router()
 
 api.get('/', (req: Request, res: Response) => {
   res.json({
-    hello: 'From dlmvp Api',
+    hello: 'HappyFit Api',
     meta: {
       status: 'running',
       version: '1.0.0',

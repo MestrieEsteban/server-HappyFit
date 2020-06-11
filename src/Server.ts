@@ -29,7 +29,7 @@ export default class Server {
       process.exit(-1)
     }
 
-    mlog('🖖 Database successfully authenticated', 'success')
+    mlog('🤩 Database successfully authenticated', 'success')
     this._app = express()
 
     this._app.use(passport.initialize())
@@ -43,7 +43,7 @@ export default class Server {
     await this._initialize()
 
     this._app?.listen(this._port, () => {
-      mlog(`✨ Server is listening on ${this._host}:${this._port}`)
+      mlog(`🤠 Server is listening on ${this._host}:${this._port}`)
     })
   }
 }

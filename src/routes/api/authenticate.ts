@@ -6,6 +6,11 @@ import jwt from 'jsonwebtoken'
 
 import User from '../../core/models/User'
 import passport from 'passport'
+import Level from '@/core/models/Level'
+import Goal from '@/core/models/Goal'
+import Meal from '@/core/models/Meal'
+
+
 
 const api = Router()
 
@@ -20,13 +25,17 @@ api.post('/signup', async (req: Request, res: Response) => {
       throw new Error(`Field${isPlural ? 's' : ''} [ ${missings.join(', ')} ] ${isPlural ? 'are' : 'is'} missing`)
     }
 
-    const { firstname, lastname, email, password, passwordConfirmation, gender, height, weight } = req.body
+    const { firstname, lastname, email, password, passwordConfirmation, gender, height, weight, level, goal, meal } = req.body
 
     if (password !== passwordConfirmation) {
       throw new Error("Password doesn't match")
     }
 
     const user = new User()
+
+    let lv = await Level.findOne(level)
+    let gl = await Goal.findOne(goal)
+    let ml = await Meal.findOne(meal)
 
     user.firstname = firstname
     user.lastname = lastname
@@ -35,6 +44,9 @@ api.post('/signup', async (req: Request, res: Response) => {
     user.gender = gender
     user.height = height
     user.weight = weight
+    user.level_id = lv
+    user.goal_id = gl
+    user.meal_id = ml
 
     await user.save()
 

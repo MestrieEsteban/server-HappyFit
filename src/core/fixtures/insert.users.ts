@@ -9,6 +9,7 @@ const users = [
     gender: '0',
     height: 190,
     weight: 90,
+    level: 1,
   },
 
   {
@@ -19,6 +20,7 @@ const users = [
     gender: '0',
     height: 190,
     weight: 90,
+    level: 1,
   },
 ]
 
