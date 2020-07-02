@@ -16,7 +16,6 @@ import { addLevel } from '@/core/fixtures/insert.level'
 import { addMeal } from '@/core/fixtures/insert.meal'
 import { addGoal } from '@/core/fixtures/insert.goal'
 import { addExercise } from '@/core/fixtures/insert.exercise'
-import { addExercieseName } from '@/core/fixtures/insert.ExerciseName'
 import { addMuscle } from '@/core/fixtures/insert.muscle'
 
 export default class Database {
@@ -70,10 +69,6 @@ export default class Database {
 
     setTimeout(async function () {
       addGoal()
-    }, 4000)
-
-    setTimeout(async function () {
-      addExercieseName()
     }, 4000)
 
     setTimeout(async function () {
