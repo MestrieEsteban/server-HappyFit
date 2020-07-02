@@ -10,7 +10,7 @@ api.get('/:id', async (req: Request, res: Response) => {
   try {
     const { id } = req.params
 
-    const user = await User.findOne({ where: { id } })
+    const user = await User.findOne(id, { relations: ['levelId', 'mealId', 'goalId'] })
 
     res.status(CREATED.status).json(success(user))
   } catch (err) {

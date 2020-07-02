@@ -10,6 +10,8 @@ const users = [
     height: 190,
     weight: 90,
     level: 1,
+    meal: 3,
+    goal: 1,
   },
 
   {
@@ -21,6 +23,8 @@ const users = [
     height: 190,
     weight: 90,
     level: 1,
+    meal: 3,
+    goal: 1,
   },
 ]
 

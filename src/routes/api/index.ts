@@ -1,6 +1,6 @@
 import { Router, Request, Response } from 'express'
 import auth from './authenticate'
-import secured from './secured'
+import secured from './secured/index'
 import passport from 'passport'
 
 const api = Router()

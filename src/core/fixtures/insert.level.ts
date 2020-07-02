@@ -5,7 +5,7 @@ const levels = [
     name: 'Débutant',
   },
   {
-    name: 'Intermédiaure',
+    name: 'Intermédiaire',
   },
   {
     name: 'Avancé',

@@ -21,20 +21,18 @@ export default class Exercise extends BaseEntity {
   exercise_id!: Programme[] | undefined
 
   @ManyToOne((type) => ExerciseName, (ExerciseName) => ExerciseName.exercise)
-  @JoinColumn({ name: 'id_ExerciseName' })
-  ExerciseName_id!: ExerciseName | undefined
+  @JoinColumn({ name: 'idExerciseName' })
+  idExerciseName!: ExerciseName | undefined
 
   @ManyToOne((type) => Muscle, (muscle) => muscle.exercise)
-  @JoinColumn({ name: 'id_muscle' })
-  muscle_id!: ExerciseName | undefined
+  @JoinColumn({ name: 'idMuscle' })
+  idMuscle!: ExerciseName | undefined
 
   /**
    * Methods
    */
   public toJSON(): Exercise {
-    const json = Object.assign({}, this)
-
-    delete json.exercise_id
+    const json: Exercise = Object.assign({}, this)
 
     return json
   }

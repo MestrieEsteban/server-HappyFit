@@ -15,12 +15,15 @@ import { addUser } from '@/core/fixtures/insert.users'
 import { addLevel } from '@/core/fixtures/insert.level'
 import { addMeal } from '@/core/fixtures/insert.meal'
 import { addGoal } from '@/core/fixtures/insert.goal'
+import { addExercise } from '@/core/fixtures/insert.exercise'
+import { addExercieseName } from '@/core/fixtures/insert.ExerciseName'
+import { addMuscle } from '@/core/fixtures/insert.muscle'
 
 export default class Database {
   private static _instance: Database | null = null
   private _connection: Connection | null = null
 
-  private constructor() {}
+  private constructor() { }
 
   public static getInstance(): Database {
     if (!Database._instance) {
@@ -67,6 +70,18 @@ export default class Database {
 
     setTimeout(async function () {
       addGoal()
+    }, 4000)
+
+    setTimeout(async function () {
+      addExercieseName()
+    }, 4000)
+
+    setTimeout(async function () {
+      addMuscle()
+    }, 4000)
+    
+    setTimeout(async function () {
+      addExercise()
     }, 4000)
 
     return this._connection

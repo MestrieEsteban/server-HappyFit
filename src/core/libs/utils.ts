@@ -13,6 +13,7 @@ export function mlog(str: string, level = 'debug'): void {
     error: 'red',
     warning: 'yellow',
     success: 'green',
+    info: 'blue',
   }
 
   // @ts-ignore

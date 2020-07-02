@@ -9,7 +9,7 @@ export default class Muscle extends BaseEntity {
   @Column({ nullable: false, unique: true })
   name!: string
 
-  @OneToMany((type) => Exercise, (exercise) => exercise.muscle_id)
+  @OneToMany((type) => Exercise, (exercise) => exercise.idMuscle)
   exercise!: Exercise[] | undefined
 
   /**

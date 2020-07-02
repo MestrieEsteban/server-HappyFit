@@ -9,16 +9,15 @@ export default class ExerciseName extends BaseEntity {
   @Column({ nullable: false, unique: true })
   name!: string
 
-  @OneToMany((type) => Exercise, (exercise) => exercise.ExerciseName_id)
+  @OneToMany((type) => Exercise, (exercise) => exercise.idExerciseName)
   exercise!: Exercise[] | undefined
 
   /**
    * Methods
    */
   public toJSON(): ExerciseName {
-    const json = Object.assign({}, this)
+    const json: ExerciseName = Object.assign({}, this)
 
-    delete json.exercise
     return json
   }
 }
