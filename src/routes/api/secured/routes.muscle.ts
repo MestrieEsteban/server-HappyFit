@@ -9,7 +9,6 @@ const api = Router()
 
 api.get('/', async (req: Request, res: Response) => {
   try {
-
     const muscle = await Muscle.find()
 
     res.status(CREATED.status).json(muscle)

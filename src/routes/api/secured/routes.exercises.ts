@@ -21,24 +21,22 @@ api.get('/', async (req: Request, res: Response) => {
 })
 
 api.get('/muscle/:id_Muscle', async (req: Request, res: Response) => {
-
   const { id_Muscle } = req.params
 
   try {
     //const exercise = await Exercise.find({ idMuscle: {id: 2} })
-    let exercise = await Exercise.find({
+    const exercise = await Exercise.find({
       where: {
-        idMuscle: {id: id_Muscle}
+        idMuscle: { id: id_Muscle },
       },
-      relations: ['idExerciseName', 'idMuscle']
-  });
+      relations: ['idExerciseName', 'idMuscle'],
+    })
     console.log(exercise)
     res.status(CREATED.status).json(exercise)
   } catch (err) {
     res.status(BAD_REQUEST.status).json(error(BAD_REQUEST, err))
   }
 })
-
 
 api.post('/', async (req: Request, res: Response) => {
   const fields = ['repet', 'series', 'pause', 'idExerciseName', 'idMuscle', 'idMuscle2']
@@ -62,7 +60,6 @@ api.post('/', async (req: Request, res: Response) => {
     const m1 = await Muscle.findOne(idMuscle)
     const m2 = await Muscle.findOne(idMuscle2)
     exercise.idMuscle = m1
-
 
     await exercise.save()
 

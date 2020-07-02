@@ -12,7 +12,4 @@ const exercises = [
   },
 ]
 
-export async function addExercise(): Promise<never | void> {
- 
-  
-}
+export async function addExercise(): Promise<never | void> {}

@@ -12,13 +12,12 @@ const api = Router({ mergeParams: true })
 
 api.get('/', async (req: Request, res: Response) => {
   try {
-    const exercise = await Exercise.find( { relations: ['idExerciseName', 'idMuscle'] })
+    const exercise = await Exercise.find({ relations: ['idExerciseName', 'idMuscle'] })
     res.status(CREATED.status).json(exercise)
   } catch (err) {
     res.status(BAD_REQUEST.status).json(error(BAD_REQUEST, err))
   }
 })
-
 
 api.post('/', async (req: Request, res: Response) => {
   const fields = ['repet', 'series', 'pause', 'idExerciseName', 'idMuscle']
@@ -38,9 +37,8 @@ api.post('/', async (req: Request, res: Response) => {
     exercise.repet = repet
     exercise.series = series
     exercise.pause = pause
-    exercise.idExerciseName =  await ExerciseName.findOne(idExerciseName)
+    exercise.idExerciseName = await ExerciseName.findOne(idExerciseName)
     exercise.idMuscle = await Muscle.findOne(idMuscle)
-
 
     await exercise.save()
 
