@@ -17,6 +17,7 @@ const muscles = [
     name: 'Biceps',
   },
   {
+    //6
     name: 'Triceps',
   },
   {
@@ -29,6 +30,7 @@ const muscles = [
     name: 'Trapèzes',
   },
   {
+    //10
     name: 'Fessiers',
   },
   {
@@ -41,6 +43,7 @@ const muscles = [
     name: 'Fléchisseurs des bras et des poignets',
   },
   {
+    //14
     name: 'Fixateurs des omoplates',
   },
   {

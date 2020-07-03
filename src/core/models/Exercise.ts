@@ -17,7 +17,7 @@ export default class Exercise extends BaseEntity {
   @Column({ nullable: false })
   pause!: number
 
-  @OneToMany((type) => Programme, (programme) => programme.exercise)
+  @ManyToOne((type) => Programme, (programme) => programme.exercise)
   exercise_id!: Programme[] | undefined
 
   @ManyToOne((type) => ExerciseName, (ExerciseName) => ExerciseName.exercise)

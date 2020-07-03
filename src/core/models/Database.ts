@@ -82,7 +82,7 @@ export default class Database {
 
     setTimeout(async function () {
       addExercise()
-    }, 4000)
+    }, 5000)
 
     return this._connection
   }

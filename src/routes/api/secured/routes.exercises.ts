@@ -31,7 +31,6 @@ api.get('/muscle/:id_Muscle', async (req: Request, res: Response) => {
       },
       relations: ['idExerciseName', 'idMuscle'],
     })
-    console.log(exercise)
     res.status(CREATED.status).json(exercise)
   } catch (err) {
     res.status(BAD_REQUEST.status).json(error(BAD_REQUEST, err))
@@ -39,7 +38,7 @@ api.get('/muscle/:id_Muscle', async (req: Request, res: Response) => {
 })
 
 api.post('/', async (req: Request, res: Response) => {
-  const fields = ['repet', 'series', 'pause', 'idExerciseName', 'idMuscle', 'idMuscle2']
+  const fields = ['repet', 'series', 'pause', 'idExerciseName', 'idMuscle']
 
   try {
     const missings = fields.filter((field: string) => !req.body[field])
@@ -49,7 +48,7 @@ api.post('/', async (req: Request, res: Response) => {
       throw new Error(`Field${isPlural ? 's' : ''} [ ${missings.join(', ')} ] ${isPlural ? 'are' : 'is'} missing`)
     }
 
-    const { repet, series, pause, idExerciseName, idMuscle, idMuscle2 } = req.body
+    const { repet, series, pause, idExerciseName, idMuscle } = req.body
 
     const exercise = new Exercise()
 
@@ -57,10 +56,8 @@ api.post('/', async (req: Request, res: Response) => {
     exercise.series = series
     exercise.pause = pause
     exercise.idExerciseName = await ExerciseName.findOne(idExerciseName)
-    const m1 = await Muscle.findOne(idMuscle)
-    const m2 = await Muscle.findOne(idMuscle2)
-    exercise.idMuscle = m1
-
+    exercise.idMuscle = await Muscle.findOne(idMuscle)
+    
     await exercise.save()
 
     res.status(CREATED.status).json(success(exercise))
