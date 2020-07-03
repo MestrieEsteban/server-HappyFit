@@ -40,35 +40,33 @@ api.get('/:id_user', async (req: Request, res: Response) => {
 
 api.post('/', async (req: Request, res: Response) => {
   const fields = ['name', 'id_exercise', 'user_id']
-  
+
   try {
     const missings = fields.filter((field: string) => !req.body[field])
-    
+
     if (!isEmpty(missings)) {
       const isPlural = missings.length > 1
       throw new Error(`Field${isPlural ? 's' : ''} [ ${missings.join(', ')} ] ${isPlural ? 'are' : 'is'} missing`)
     }
-    
-    const { name, id_exercise, user_id} = req.body
-    
+
+    const { name, id_exercise, user_id } = req.body
+
     const programme = new Programme()
-    
+
     const user = await User.findOne(user_id, { relations: ['levelId', 'mealId', 'goalId'] })
-    let allExo: Array<number> = id_exercise.split('-')
-    
+    const allExo: Array<number> = id_exercise.split('-')
+
     programme.name = name
     programme.user_id = user
-    let test =[]
-    
-    for ( let i = 0; i < allExo.length ; i++)
-    {
-      const exo = await Exercise.findOne(1, {relations: ['idExerciseName', 'idMuscle']});
-      if(exo){
+    const test = []
+
+    for (let i = 0; i < allExo.length; i++) {
+      const exo = await Exercise.findOne(1, { relations: ['idExerciseName', 'idMuscle'] })
+      if (exo) {
         test.push(exo)
       }
-      
     }
-      programme.exercise = test
+    programme.exercise = test
 
     await programme.save()
 
@@ -77,6 +75,5 @@ api.post('/', async (req: Request, res: Response) => {
     res.status(BAD_REQUEST.status).json(error(BAD_REQUEST, err))
   }
 })
-
 
 export default api

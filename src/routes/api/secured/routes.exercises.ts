@@ -57,7 +57,7 @@ api.post('/', async (req: Request, res: Response) => {
     exercise.pause = pause
     exercise.idExerciseName = await ExerciseName.findOne(idExerciseName)
     exercise.idMuscle = await Muscle.findOne(idMuscle)
-    
+
     await exercise.save()
 
     res.status(CREATED.status).json(success(exercise))

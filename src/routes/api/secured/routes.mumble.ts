@@ -25,43 +25,73 @@ api.get('/generate', async (req: Request, res: Response) => {
     const { user_id } = req.body
     let exos
 
-    let user = await User.findOne(user_id, { relations: ['levelId', 'mealId', 'goalId'] })
+    const user = await User.findOne(user_id, { relations: ['levelId', 'mealId', 'goalId'] })
     if (user) {
       if (user.mealId?.id && user.goalId?.id && user.levelId?.id) {
         if (user.levelId?.id === 1) {
           if (user.goalId?.id === 1) {
             exos = await Exercise.find({
-              where: [{
-                repet: LessThanOrEqual(10), series: LessThanOrEqual(1), idExerciseName: { id: 4 }
-              }, {
-                repet: LessThanOrEqual(10), series: LessThanOrEqual(1), idExerciseName: { id: 3 }
-              },{
-                repet: LessThanOrEqual(10), series: LessThanOrEqual(1), idExerciseName: { id: 8 }
-              }],
+              where: [
+                {
+                  repet: LessThanOrEqual(10),
+                  series: LessThanOrEqual(1),
+                  idExerciseName: { id: 4 },
+                },
+                {
+                  repet: LessThanOrEqual(10),
+                  series: LessThanOrEqual(1),
+                  idExerciseName: { id: 3 },
+                },
+                {
+                  repet: LessThanOrEqual(10),
+                  series: LessThanOrEqual(1),
+                  idExerciseName: { id: 8 },
+                },
+              ],
               relations: ['idExerciseName', 'idMuscle'],
             })
           }
           if (user.goalId?.id === 2) {
             exos = await Exercise.find({
-              where: [{
-                repet: LessThanOrEqual(10), series: LessThanOrEqual(1), idExerciseName: { id: 1 }
-              }, {
-                repet: LessThanOrEqual(10), series: LessThanOrEqual(1), idExerciseName: { id: 6 }
-              },{
-                repet: LessThanOrEqual(10), series: LessThanOrEqual(1), idExerciseName: { id: 10 }
-              }],
+              where: [
+                {
+                  repet: LessThanOrEqual(10),
+                  series: LessThanOrEqual(1),
+                  idExerciseName: { id: 1 },
+                },
+                {
+                  repet: LessThanOrEqual(10),
+                  series: LessThanOrEqual(1),
+                  idExerciseName: { id: 6 },
+                },
+                {
+                  repet: LessThanOrEqual(10),
+                  series: LessThanOrEqual(1),
+                  idExerciseName: { id: 10 },
+                },
+              ],
               relations: ['idExerciseName', 'idMuscle'],
             })
           }
           if (user.goalId?.id === 2) {
             exos = await Exercise.find({
-              where: [{
-                repet: LessThanOrEqual(10), series: LessThanOrEqual(1), idExerciseName: { id: 9 }
-              }, {
-                repet: LessThanOrEqual(10), series: LessThanOrEqual(1), idExerciseName: { id: 8 }
-              },{
-                repet: LessThanOrEqual(10), series: LessThanOrEqual(1), idExerciseName: { id: 1 }
-              }],
+              where: [
+                {
+                  repet: LessThanOrEqual(10),
+                  series: LessThanOrEqual(1),
+                  idExerciseName: { id: 9 },
+                },
+                {
+                  repet: LessThanOrEqual(10),
+                  series: LessThanOrEqual(1),
+                  idExerciseName: { id: 8 },
+                },
+                {
+                  repet: LessThanOrEqual(10),
+                  series: LessThanOrEqual(1),
+                  idExerciseName: { id: 1 },
+                },
+              ],
               relations: ['idExerciseName', 'idMuscle'],
             })
           }
@@ -69,37 +99,67 @@ api.get('/generate', async (req: Request, res: Response) => {
         if (user.levelId?.id === 2) {
           if (user.goalId?.id === 1) {
             exos = await Exercise.find({
-              where: [{
-                repet: 20, series: 2, idExerciseName: { id: 4 }
-              }, {
-                repet: 20, series: 2, idExerciseName: { id: 3 }
-              },{
-                repet: 20, series: 2, idExerciseName: { id: 8 }
-              }],
+              where: [
+                {
+                  repet: 20,
+                  series: 2,
+                  idExerciseName: { id: 4 },
+                },
+                {
+                  repet: 20,
+                  series: 2,
+                  idExerciseName: { id: 3 },
+                },
+                {
+                  repet: 20,
+                  series: 2,
+                  idExerciseName: { id: 8 },
+                },
+              ],
               relations: ['idExerciseName', 'idMuscle'],
             })
           }
           if (user.goalId?.id === 2) {
             exos = await Exercise.find({
-              where: [{
-                repet: 20, series: 2, idExerciseName: { id: 1 }
-              }, {
-                repet: 20, series: 2, idExerciseName: { id: 6 }
-              },{
-                repet: 20, series: 2, idExerciseName: { id: 10 }
-              }],
+              where: [
+                {
+                  repet: 20,
+                  series: 2,
+                  idExerciseName: { id: 1 },
+                },
+                {
+                  repet: 20,
+                  series: 2,
+                  idExerciseName: { id: 6 },
+                },
+                {
+                  repet: 20,
+                  series: 2,
+                  idExerciseName: { id: 10 },
+                },
+              ],
               relations: ['idExerciseName', 'idMuscle'],
             })
           }
           if (user.goalId?.id === 2) {
             exos = await Exercise.find({
-              where: [{
-                repet: 20, series: 2, idExerciseName: { id: 9 }
-              }, {
-                repet: 20, series: 2, idExerciseName: { id: 8 }
-              },{
-                repet: 20, series: 2, idExerciseName: { id: 1 }
-              }],
+              where: [
+                {
+                  repet: 20,
+                  series: 2,
+                  idExerciseName: { id: 9 },
+                },
+                {
+                  repet: 20,
+                  series: 2,
+                  idExerciseName: { id: 8 },
+                },
+                {
+                  repet: 20,
+                  series: 2,
+                  idExerciseName: { id: 1 },
+                },
+              ],
               relations: ['idExerciseName', 'idMuscle'],
             })
           }
@@ -107,42 +167,71 @@ api.get('/generate', async (req: Request, res: Response) => {
         if (user.levelId?.id === 3) {
           if (user.goalId?.id === 1) {
             exos = await Exercise.find({
-              where: [{
-                repet: 30, series: 2, idExerciseName: { id: 4 }
-              }, {
-                repet: 30, series: 2, idExerciseName: { id: 3 }
-              },{
-                repet: 30, series: 2, idExerciseName: { id: 8 }
-              }],
+              where: [
+                {
+                  repet: 30,
+                  series: 2,
+                  idExerciseName: { id: 4 },
+                },
+                {
+                  repet: 30,
+                  series: 2,
+                  idExerciseName: { id: 3 },
+                },
+                {
+                  repet: 30,
+                  series: 2,
+                  idExerciseName: { id: 8 },
+                },
+              ],
               relations: ['idExerciseName', 'idMuscle'],
             })
           }
           if (user.goalId?.id === 2) {
             exos = await Exercise.find({
-              where: [{
-                repet: 30, series: 2, idExerciseName: { id: 1 }
-              }, {
-                repet: 30, series: 2, idExerciseName: { id: 6 }
-              },{
-                repet: 30, series: 2, idExerciseName: { id: 10 }
-              }],
+              where: [
+                {
+                  repet: 30,
+                  series: 2,
+                  idExerciseName: { id: 1 },
+                },
+                {
+                  repet: 30,
+                  series: 2,
+                  idExerciseName: { id: 6 },
+                },
+                {
+                  repet: 30,
+                  series: 2,
+                  idExerciseName: { id: 10 },
+                },
+              ],
               relations: ['idExerciseName', 'idMuscle'],
             })
           }
           if (user.goalId?.id === 2) {
             exos = await Exercise.find({
-              where: [{
-                repet: 30, series: 2, idExerciseName: { id: 9 }
-              }, {
-                repet: 30, series: 2, idExerciseName: { id: 8 }
-              },{
-                repet: 30, series: 2, idExerciseName: { id: 1 }
-              }],
+              where: [
+                {
+                  repet: 30,
+                  series: 2,
+                  idExerciseName: { id: 9 },
+                },
+                {
+                  repet: 30,
+                  series: 2,
+                  idExerciseName: { id: 8 },
+                },
+                {
+                  repet: 30,
+                  series: 2,
+                  idExerciseName: { id: 1 },
+                },
+              ],
               relations: ['idExerciseName', 'idMuscle'],
             })
           }
         }
-        
       }
     }
     // let test = []
@@ -150,7 +239,6 @@ api.get('/generate', async (req: Request, res: Response) => {
     //   test.push(e.id)
     // }
     // let code = test.join('-')
-
 
     res.status(CREATED.status).json(exos)
   } catch (err) {

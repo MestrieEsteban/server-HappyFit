@@ -24,7 +24,6 @@ export default class Programme extends BaseEntity {
   public toJSON(): Programme {
     const json = Object.assign({}, this)
 
-
     return json
   }
 }
