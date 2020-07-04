@@ -247,4 +247,3 @@ api.get('/generate', async (req: Request, res: Response) => {
 })
 
 export default api
-
