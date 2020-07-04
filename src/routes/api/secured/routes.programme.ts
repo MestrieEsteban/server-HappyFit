@@ -32,7 +32,7 @@ api.get('/:id_user', async (req: Request, res: Response) => {
       relations: ['exercise', 'exercise.idExerciseName', 'exercise.idMuscle'],
     })
 
-    res.status(CREATED.status).json(success(programme))
+    res.status(CREATED.status).json(programme)
   } catch (err) {
     res.status(BAD_REQUEST.status).json(error(BAD_REQUEST, err))
   }

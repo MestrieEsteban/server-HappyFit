@@ -22,9 +22,9 @@ const users = [
     gender: '0',
     height: 190,
     weight: 90,
-    level: 1,
+    level: 2,
     meal: 3,
-    goal: 1,
+    goal: 2,
   },
 ]
 
